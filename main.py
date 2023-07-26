@@ -5,7 +5,6 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from utils.plotly_tab_name import Title_Browser
 
-
 def cluster(data: pd.DataFrame, num_clusters=8) -> (np.ndarray, float,
                                                     float, float):
     '''
@@ -64,6 +63,37 @@ def cluster_sort_plot(correlation_matrix: pd.DataFrame, k: int):
                                    f"{round(inertia, 3)} dist="
                                    f"{round(dist, 3)} sil={round(sil, 3)}")
 
+def plot_k_stats(min_k=2,max_k=15):
+    '''
+    Plot the inertia, average distance between clusters and silhouette score
+    for different values of k
+    :return:
+    '''
+    k_list, inertia_list, avg_dist_list, sil_list = [],[],[],[]
+    for k in range(min_k, max_k):
+        _, inertia, avg_dist, sil = cluster(correlation_matrix, k)
+        k_list.append(k)
+        inertia_list.append(inertia)
+        avg_dist_list.append(avg_dist)
+        sil_list.append(sil)
+    inertia_list = np.array(inertia_list)/np.max(inertia_list)
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=k_list, y=inertia_list,
+                                mode='lines+markers',
+                                name='Relative Inertia (0,1]'))
+    fig.add_trace(go.Scatter(x=k_list, y=avg_dist_list,
+                                mode='lines+markers',
+                                name='Average Distance Between Clusters '
+                                     'Center'))
+    fig.add_trace(go.Scatter(x=k_list, y=sil_list,
+                                mode='lines+markers',
+                                name='Silhouette Score [-1,1]'))
+    fig.update_layout(
+        title="K-Means Statistics",  # Set the title of the heatmap
+        xaxis_title="K",  # Set the label for the x-axis
+        yaxis_title="Value",  # Set the label for the y-axis
+    )
+    fig.show(renderer=Title_Browser, browser_tab_title="K-Means Statistics")
 
 if __name__ == '__main__':
     # Load data
@@ -77,3 +107,5 @@ if __name__ == '__main__':
     # Cluster the correlation vectors and show plots
     for k in range(2, 15):
         cluster_sort_plot(correlation_matrix, k)
+    # Plot the statistics for different values of k
+    plot_k_stats(2,15)
