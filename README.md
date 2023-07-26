@@ -2,7 +2,13 @@
 
 ## Overview
 
-Welcome to the BIG-5 Reclustering project! Our goal is to analyze and understand the clusterization of the Big Five personality traits – Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. By exploring various clustering techniques, we aim to discover new ways to group individuals with similar personality traits, gaining valuable insights into human behavior and psychology.
+Welcome to the BIG-5 Reclustering project! Our goal is to analyze and understand the clusterization of the Big Five personality traits – Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. By 
+exploring various clustering techniques, we aim to discover new ways to group individuals with similar personality traits, gaining valuable insights into human behavior and psychology.
+
+**This project is part of the HUJI University Neuropsychiatry class.**
+
+**Authors: Raz Zeevy, Tomer Yakobi, Ayala Cohen, Shir Levi, Bar Friedman**
+
 
 ## Introduction
 
