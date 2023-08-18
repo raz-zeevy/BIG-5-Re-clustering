@@ -7,7 +7,7 @@ exploring various clustering techniques, we aim to discover new ways to group in
 
 **This project is part of the HUJI University Neuropsychiatry class.**
 
-**Authors: Raz Zeevy, Tomer Yakobi, Ayala Cohen, Shir Levi, Bar Friedman**
+**Authors: Raz Zeevy, Tomer Yaacoby, Ayala Cohen, Shir Levi, Bar Friedman**
 
 
 ## Introduction
